@@ -1,10 +1,9 @@
-import './App.css'
-import Maincontent from './components/MainContent/Maincontent'
-import Navbar from './components/Navbar/Navbar'
+import Maincontent from './components/Maincontent'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div className="App">
+    <div className="flex flex-col items-center justify-between min-h-[100dvh]">
       <Navbar />
       <Maincontent />
     </div>
