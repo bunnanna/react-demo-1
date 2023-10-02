@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-between min-h-[100dvh]">
+    <div className="flex flex-col items-center min-h-[100dvh]">
       <Navbar />
       <Maincontent />
     </div>

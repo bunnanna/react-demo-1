@@ -1,9 +1,14 @@
 import Greetings from './Greetings'
+import PostList from './PostList'
 const Maincontent = () => {
   return (
-    <main className="flex-1 flex items-center justify-center">
-      <Greetings />
-    </main>
+    <div className="flex flex-col justify-center items-center">
+      <div className="flex my-5 gap-3">
+        <Greetings name="bun" isLogin />
+        <Greetings name="bun" isLogin={false} />
+      </div>
+      <PostList />
+    </div>
   )
 }
 export default Maincontent
