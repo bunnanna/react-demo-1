@@ -5,7 +5,7 @@ interface IFormData {
 }
 const PostForm = () => {
   const [formData, setformData] = useState<IFormData>({ title: '', body: '' })
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setformData((prev) => {
       return { ...prev, [e.target.name]: e.target.value }
     })
