@@ -1,5 +1,6 @@
 import { PostDTO } from '../types/postdto'
 import Post from './Post'
+import PostForm from './PostForm'
 
 const posts: PostDTO[] = [
   {
@@ -24,11 +25,14 @@ const posts: PostDTO[] = [
 
 const PostList = () => {
   return (
-    <div className="flex gap-4 justify-center items-start my-10 mx-auto w-4/5">
-      {posts.map((post) => (
-        <Post key={post.id} post={post} />
-      ))}
-    </div>
+    <>
+      <PostForm />
+      <div className="flex gap-4 justify-center items-start my-10 mx-auto w-4/5">
+        {posts.map((post) => (
+          <Post key={post.id} post={post} />
+        ))}
+      </div>
+    </>
   )
 }
 export default PostList
