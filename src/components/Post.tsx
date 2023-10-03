@@ -4,7 +4,7 @@ interface IPost {
   post: PostDTO
 }
 const Post = ({ post }: IPost) => {
-  const { userId, title, body } = post
+  const { title, body } = post
   const [show, setShow] = useState<boolean>(false)
   return (
     <div
@@ -13,7 +13,7 @@ const Post = ({ post }: IPost) => {
     >
       <div className="flex justify-between items-center bg-slate-600 p-4">
         <div className="text-slate-100 text-lg">{title}</div>
-        <div>{userId}</div>
+        <div className="text-slate-100">{!show ? '' : 'click to close'}</div>
       </div>
 
       <div className="p-6">{show ? <div>{body}</div> : <div>click to open</div>} </div>
