@@ -1,9 +1,15 @@
 import { useState } from 'react'
 import { IFormData, CreatePostDTO } from '../types/postdto'
 
-const PostForm = ({ onHandlePost }: { onHandlePost: (post: CreatePostDTO) => Promise<void> }) => {
+const PostForm = ({
+  onSendPost,
+  isSending,
+}: {
+  onSendPost: (post: CreatePostDTO) => Promise<void>
+  isSending: boolean
+}) => {
   const [formData, setformData] = useState<IFormData>({ title: '', body: '' })
-  const [sending, setsending] = useState(false)
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setformData((prev) => {
       return { ...prev, [e.target.name]: e.target.value }
@@ -17,14 +23,12 @@ const PostForm = ({ onHandlePost }: { onHandlePost: (post: CreatePostDTO) => Pro
       <input type="text" value={formData.body} onChange={handleChange} name="body" />
       <button
         className="border border-slate-950 "
-        style={{ backgroundColor: `${sending ? 'red' : 'blue'}` }}
-        disabled={sending}
+        style={{ backgroundColor: `${isSending ? 'red' : 'blue'}` }}
+        disabled={isSending}
         onClick={async (e) => {
           e.preventDefault()
-          setsending(true)
-          await onHandlePost({ ...formData, userId: 2 })
+          await onSendPost({ ...formData, userId: 2 })
           setformData({ title: '', body: '' })
-          setsending(false)
         }}
       >
         Post
