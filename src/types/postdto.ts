@@ -4,3 +4,10 @@ export interface PostDTO {
   title: string
   body: string
 }
+export interface IFormData {
+  title: string
+  body: string
+}
+export interface CreatePostDTO {
+  userId: number
+}
