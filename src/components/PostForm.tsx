@@ -1,28 +1,28 @@
 import { useState } from 'react'
-import { IFormData, CreatePostDTO } from '../types/postdto'
+import { IFormData } from '../types/postdto'
+import usePosts from '../hooks/usePosts'
 
-const PostForm = ({
-  onSendPost,
-  isSending,
-}: {
-  onSendPost: (post: CreatePostDTO) => Promise<void>
-  isSending: boolean
-}) => {
+const PostForm = () => {
   const [formData, setformData] = useState<IFormData>({ title: '', body: '' })
-
+  const { isSending, onSendPost } = usePosts('https://jsonplaceholder.typicode.com/posts')
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setformData((prev) => {
       return { ...prev, [e.target.name]: e.target.value }
     })
   }
   return (
-    <form>
-      <label htmlFor="title">title</label>
-      <input type="text" value={formData.title} onChange={handleChange} name="title" />
-      <label htmlFor="body">body</label>
-      <input type="text" value={formData.body} onChange={handleChange} name="body" />
+    <form className="flex flex-col gap-3 items-center border border-slate-950 rounded-3xl bg-slate-200 p-7">
+      <div className="m-5 w-full flex justify-between">
+        <label htmlFor="title">title</label>
+        <input type="text" value={formData.title} onChange={handleChange} name="title" required />
+      </div>
+      <div className="m-5 w-full flex justify-between">
+        <label htmlFor="body">body</label>
+        <input type="text" value={formData.body} onChange={handleChange} name="body" required />
+      </div>
+
       <button
-        className="border border-slate-950 "
+        className="border border-slate-950 w-full p-3 rounded-full text-slate-50 text-2xl"
         style={{ backgroundColor: `${isSending ? 'red' : 'blue'}` }}
         disabled={isSending}
         onClick={async (e) => {
