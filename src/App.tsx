@@ -11,9 +11,9 @@ function App() {
     <Routes>
       <Route path="/" element={<PagesTemplate />}>
         <Route path="/posts" element={<BlankTemplate />}>
-          <Route path="/posts/" element={<PostList />} />
-          <Route path="/posts/create" element={<PostForm />} />
-          <Route path="/posts/:id" element={<Post />} />
+          <Route index element={<PostList />} />
+          <Route path="create" element={<PostForm />} />
+          <Route path=":id" element={<Post />} />
         </Route>
         <Route path="/profile" element={<Profile />} />
       </Route>
