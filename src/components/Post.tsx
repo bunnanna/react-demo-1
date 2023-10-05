@@ -1,10 +1,14 @@
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import usePost from '../hooks/usePost'
+import { useAuth } from '../providers/AuthProvider'
 
 const Post = () => {
   const { id } = useParams()
   const { post, isLoading, isError } = usePost(`https://jsonplaceholder.typicode.com/posts/${id}`)
+  const { isLogin } = useAuth()
+  console.log('from post', isLogin)
+
   if (isLoading) return <h1>Loading...</h1>
   if (isError) return <h1>Error</h1>
   if (post === null) return null
