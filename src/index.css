@@ -12,3 +12,7 @@ body {
   min-height: 100dvh;
   background-color: beige;
 }
+
+.nav-link-active {
+  background-color: rgb(187, 187, 187);
+}
