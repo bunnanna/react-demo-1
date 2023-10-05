@@ -1,5 +1,5 @@
-import Post from './Post'
 import usePosts from '../hooks/usePosts'
+import MiniPost from './MiniPost'
 
 const PostList = () => {
   const { posts, isLoading, isError } = usePosts('https://jsonplaceholder.typicode.com/posts')
@@ -10,7 +10,7 @@ const PostList = () => {
   return (
     <div className="flex flex-col gap-4 justify-center items-start my-10 mx-auto w-4/5">
       {posts.map((post) => (
-        <Post key={post.id} post={post} />
+        <MiniPost key={post.id} post={post} />
       ))}
     </div>
   )

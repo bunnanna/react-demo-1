@@ -6,13 +6,13 @@ const Navbar = () => {
     <nav className="h-8 py-7 px-3 mx-5 w-screen flex sticky top-0 justify-between items-center bg-slate-100">
       <div>Navbar</div>
       <div className="flex gap-4">
-        <NavLink className={({ isActive }) => (isActive ? 'nav-link-active' : '')} to={'/'}>
+        <NavLink className={({ isActive }) => (isActive ? 'nav-link-active' : '')} to={'/posts'}>
           PostList
         </NavLink>
         <NavLink className={({ isActive }) => (isActive ? 'nav-link-active' : '')} to={'/profile'}>
           Profile
         </NavLink>
-        <NavLink className={({ isActive }) => (isActive ? 'nav-link-active' : '')} to={'/create'}>
+        <NavLink className={({ isActive }) => (isActive ? 'nav-link-active' : '')} to={'/posts/create'}>
           Create
         </NavLink>
         <button>login</button>
