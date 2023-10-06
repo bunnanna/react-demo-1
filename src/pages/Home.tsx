@@ -1,6 +1,4 @@
-import PostList from '../components/PostList'
-
 const Home = () => {
-  return <PostList />
+  return <h1>Home</h1>
 }
 export default Home
