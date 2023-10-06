@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { createContext, ReactNode, useState, useContext } from 'react'
 import { ICredentialDTO, ILoginDTO } from '../types/Authdto'
+import { useNavigate } from 'react-router-dom'
 interface IAuthProvider {
   children: ReactNode
 }
@@ -19,6 +20,7 @@ export const useAuth = () => {
 }
 
 const AuthProvider = ({ children }: IAuthProvider) => {
+  const navigate = useNavigate()
   const [isLogin, setisLogin] = useState<boolean>(!!localStorage.getItem('token'))
   const [username, setUsername] = useState(localStorage.getItem('username'))
   const login = async (loginBody: ILoginDTO) => {
@@ -31,7 +33,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     localStorage.setItem('username', loginBody.username)
     setUsername(loginBody.username)
     setisLogin(true)
-    console.log(res)
+    navigate('/posts')
   }
   const logout = () => {
     localStorage.removeItem('token')

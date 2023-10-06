@@ -8,7 +8,9 @@ const Navbar = () => {
 
   return (
     <nav className="h-8 py-7 px-3 mx-5 w-screen flex sticky top-0 justify-between items-center bg-slate-100">
-      <Link to={'/'}>Navbar</Link>
+      <Link to={'/'} className={` ${isLogin ? 'text-green-500' : 'text-blue-500'}`}>
+        Navbar
+      </Link>
       <div className="flex gap-4">
         {isLogin ? (
           <>
